@@ -1,0 +1,7 @@
+vim.keymap.set("n", "-", "<cmd>Oil --float<CR>", { desc = "Open Parent Directory in Oil" })
+vim.keymap.set("n", "gl", function()
+	vim.diagnostic.open_float()
+end, { desc = "Open Diagnosit in Float" })
+vim.keymap.set("n", "<leader>fm", function()
+	require("conform").format()
+end, { desc = "ForMat current file" })
