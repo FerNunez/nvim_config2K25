@@ -44,8 +44,37 @@ vim.opt.list = true
 vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
 
 -- Minimal number of screen lines to keep above and below the cursor.
-vim.opt.scrolloff = 5
-
+vim.opt.scrolloff = 8
 
 -- Remove the cmd line on the bottom
 vim.opt.cmdheight = 0
+
+-- osc52 for wezterm? testing:
+vim.o.clipboard = "unnamedplus"
+local function paste()
+	return {
+		vim.fn.split(vim.fn.getreg(""), "\n"),
+		vim.fn.getregtype(""),
+	}
+end
+vim.g.clipboard = {
+	name = "OSC 52",
+	copy = {
+		["+"] = require("vim.ui.clipboard.osc52").copy("+"),
+		["*"] = require("vim.ui.clipboard.osc52").copy("*"),
+	},
+	paste = {
+		["+"] = paste,
+		["*"] = paste,
+	},
+}
+
+-- hightlight when yanking
+local highlight_group = vim.api.nvim_create_augroup("YankHighlight", { clear = true })
+vim.api.nvim_create_autocmd("TextYankPost", {
+	callback = function()
+		vim.highlight.on_yank()
+	end,
+	group = highlight_group,
+	pattern = "*",
+})
