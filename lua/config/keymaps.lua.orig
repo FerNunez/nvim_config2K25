@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 -- yanking all papers
 vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 vim.keymap.set("n", "<leader>Y", [["+Y]])
@@ -6,15 +7,26 @@ vim.keymap.set("n", "<leader>Y", [["+Y]])
 vim.keymap.set("n", "-", "<cmd>Oil --float<CR>", { desc = "Open Parent Directory in Oil" })
 
 -- Lazy git
+=======
+-- Oil
+vim.keymap.set("n", "-", "<cmd>Oil --float<CR>", { desc = "Open Parent Directory in Oil" })
+
+-- lazy git
+>>>>>>> Stashed changes
 vim.keymap.set("n", "gl", function()
 	vim.diagnostic.open_float()
 end, { desc = "Open Diagnosit in Float" })
 
+<<<<<<< Updated upstream
 -- confom fortmat
+=======
+-- Conform Format
+>>>>>>> Stashed changes
 vim.keymap.set("n", "<leader>fm", function()
 	require("conform").format()
 end, { desc = "ForMat current file" })
 
+<<<<<<< Updated upstream
 -- Harpoon
 vim.keymap.set("n", "<leader>hh", function()
 	require("harpoon.ui").toggle_quick_menu()
@@ -31,8 +43,33 @@ end, { desc = "Harpoon [2]" })
 vim.keymap.set("n", "<leader>h3", function()
 	require("harpoon.ui").nav_file(3) -- navigates to file 3
 end, { desc = "Harpoon [3]" })
+=======
 -- Navigate vim panes better
 vim.keymap.set("n", "<c-k>", ":wincmd k<CR>")
 vim.keymap.set("n", "<c-j>", ":wincmd j<CR>")
 vim.keymap.set("n", "<c-h>", ":wincmd h<CR>")
 vim.keymap.set("n", "<c-l>", ":wincmd l<CR>")
+
+-- harppon
+vim.keymap.set("n", "<leader>hh", function()
+	require("harpoon.ui").toggle_quick_menu()
+end, { desc = "Harpoon Ui" })
+vim.keymap.set("n", "<leader>hm", function()
+	require("harpoon.mark").add_file()
+end, { desc = "Harpoon Mark file" })
+vim.keymap.set("n", "<leader>hn", function()
+	require("harpoon.ui").nav_file(1)
+end, { desc = "Harpoon Navigate to Next" })
+vim.keymap.set("n", "<leader>hp", function()
+	require("harpoon.ui").nav_file(1)
+end, { desc = "Harpoon Navigate to Prev" })
+vim.keymap.set("n", "<leader>h1", function()
+	require("harpoon.ui").nav_file(1)
+end, { desc = "Harpoon Navigate to 1" })
+vim.keymap.set("n", "<leader>h2", function()
+	require("harpoon.ui").nav_file(2)
+end, { desc = "Harpoon Navigate to 2" })
+vim.keymap.set("n", "<leader>h3", function()
+	require("harpoon.ui").nav_file(3)
+end, { desc = "Harpoon Navigate to 3" })
+>>>>>>> Stashed changes

@@ -1,13 +1,19 @@
 return {
 	"christoomey/vim-tmux-navigator",
+<<<<<<< Updated upstream
+=======
 	event = "VeryLazy",
+>>>>>>> Stashed changes
 	cmd = {
 		"TmuxNavigateLeft",
 		"TmuxNavigateDown",
 		"TmuxNavigateUp",
 		"TmuxNavigateRight",
 		"TmuxNavigatePrevious",
+<<<<<<< Updated upstream
+=======
 		"TmuxNavigatorProcessList",
+>>>>>>> Stashed changes
 	},
 	keys = {
 		{ "<c-h>", "<cmd><C-U>TmuxNavigateLeft<cr>" },
