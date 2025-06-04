@@ -4,7 +4,13 @@ return {
 	-- dependencies = { "nvim-tree/nvim-web-devicons" },
 	-- or if using mini.icons/mini.nvim
 	dependencies = { "echasnovski/mini.icons" },
-	opts = {},
+	config = function()
+		require("fzf-lua").setup({
+			grep = {
+				rg_glob = true,
+			},
+		})
+	end,
 	keys = {
 		{
 			"<leader>ff",
@@ -26,6 +32,13 @@ return {
 				require("fzf-lua").files({ cwd = vim.fn.stdpath("config") })
 			end,
 			desc = "Find in neovim configuration",
+		},
+		{
+			"<leader>fe",
+			function()
+				require("fzf-lua").live_grep_glob()
+			end,
+			desc = "Find by grepping with -- *.lua !*spec*",
 		},
 		{
 			"<leader>fh",
