@@ -20,6 +20,19 @@ return {
 			desc = "Find Files in project directory",
 		},
 		{
+			"<leader>fF",
+			function()
+				local git_root = vim.fn.system("git rev-parse --show-toplevel 2>/dev/null"):gsub("\n", "")
+				if vim.v.shell_error == 0 then
+					require("fzf-lua").files({ cwd = git_root })
+				else
+					-- Fallback to current working directory if not in a git repo
+					require("fzf-lua").files({ cwd = vim.fn.getcwd() })
+				end
+			end,
+			desc = "Find Files from Git Root",
+		},
+		{
 			"<leader>fg",
 			function()
 				require("fzf-lua").live_grep()
@@ -27,7 +40,7 @@ return {
 			desc = "Find by grepping in project directory",
 		},
 		{
-			"<leader>fc",
+			"<leader>fn",
 			function()
 				require("fzf-lua").files({ cwd = vim.fn.stdpath("config") })
 			end,
@@ -39,6 +52,18 @@ return {
 				require("fzf-lua").live_grep_glob()
 			end,
 			desc = "Find by grepping with -- *.lua !*spec*",
+		},
+		{
+			"<leader>fE",
+			function()
+				local git_root = vim.fn.system("git rev-parse --show-toplevel 2>/dev/null"):gsub("\n", "")
+				if vim.v.shell_error == 0 then
+					require("fzf-lua").live_grep_glob({ cwd = git_root })
+				else
+					require("fzf-lua").live_grep_glob({ cwd = vim.fn.getcwd() })
+				end
+			end,
+			desc = "Find by grepping from Git Root",
 		},
 		{
 			"<leader>fh",
@@ -109,6 +134,62 @@ return {
 				require("fzf-lua").lgrep_curbuf()
 			end,
 			desc = "[/] Live grep the current buffer",
+		},
+		{
+			"<leader>ft",
+			function()
+				require("fzf-lua").treesitter()
+			end,
+			desc = "Find Treesitter symbols",
+		},
+		{
+			"<leader>fl",
+			function()
+				require("fzf-lua").grep_project()
+			end,
+			desc = "Find all projects line",
+		},
+		{
+			"<leader>fB",
+			function()
+				require("fzf-lua").git_branches()
+			end,
+			desc = "Find Branches in Git",
+		},
+		{
+			"<leader>fc",
+			function()
+				require("fzf-lua").git_commits()
+			end,
+			desc = "Find coMmits in Git",
+		},
+		{
+			"<leader>fD",
+			function()
+				require("fzf-lua").git_diff()
+			end,
+			desc = "Find diff Git",
+		},
+		{
+			"<leader>fj",
+			function()
+				require("fzf-lua").jumps()
+			end,
+			desc = "Find Jumps",
+		},
+		{
+			"<leader>fC",
+			function()
+				require("fzf-lua").changes()
+			end,
+			desc = "Find changes",
+		},
+		{
+			"<leader>fS",
+			function()
+				require("fzf-lua").changes()
+			end,
+			desc = "Find tmux paste buffers",
 		},
 	},
 }
