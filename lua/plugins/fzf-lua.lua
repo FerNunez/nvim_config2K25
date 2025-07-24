@@ -49,7 +49,7 @@ return {
 		{
 			"<leader>fe",
 			function()
-				require("fzf-lua").live_grep_glob()
+				require("fzf-lua").live_grep()
 			end,
 			desc = "Find by grepping with -- *.lua !*spec*",
 		},
@@ -58,9 +58,9 @@ return {
 			function()
 				local git_root = vim.fn.system("git rev-parse --show-toplevel 2>/dev/null"):gsub("\n", "")
 				if vim.v.shell_error == 0 then
-					require("fzf-lua").live_grep_glob({ cwd = git_root })
+					require("fzf-lua").live_grep({ cwd = git_root })
 				else
-					require("fzf-lua").live_grep_glob({ cwd = vim.fn.getcwd() })
+					require("fzf-lua").live_grep({ cwd = vim.fn.getcwd() })
 				end
 			end,
 			desc = "Find by grepping from Git Root",
