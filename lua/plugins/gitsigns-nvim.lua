@@ -6,23 +6,23 @@ return {
 		{ "[h", "<cmd>Gitsigns prev_hunk<cr>", desc = "Previous git hunk" },
 
 		-- Hunk operations
-		{ "<leader>gs", "<cmd>Gitsigns stage_hunk<cr>", desc = "Stage hunk" },
-		{ "<leader>gr", "<cmd>Gitsigns reset_hunk<cr>", desc = "Reset hunk" },
-		{ "<leader>gu", "<cmd>Gitsigns undo_stage_hunk<cr>", desc = "Undo stage hunk" },
-		{ "<leader>gp", "<cmd>Gitsigns preview_hunk<cr>", desc = "Preview hunk" },
+		{ "<leader>Gs", "<cmd>Gitsigns stage_hunk<cr>", desc = "Stage hunk" },
+		{ "<leader>Gr", "<cmd>Gitsigns reset_hunk<cr>", desc = "Reset hunk" },
+		{ "<leader>Gu", "<cmd>Gitsigns undo_stage_hunk<cr>", desc = "Undo stage hunk" },
+		{ "<leader>Gp", "<cmd>Gitsigns preview_hunk<cr>", desc = "Preview hunk" },
 
 		-- Buffer operations
-		{ "<leader>gS", "<cmd>Gitsigns stage_buffer<cr>", desc = "Stage buffer" },
-		{ "<leader>gR", "<cmd>Gitsigns reset_buffer<cr>", desc = "Reset buffer" },
+		{ "<leader>GS", "<cmd>Gitsigns stage_buffer<cr>", desc = "Stage buffer" },
+		{ "<leader>GR", "<cmd>Gitsigns reset_buffer<cr>", desc = "Reset buffer" },
 
 		-- Blame & info
-		{ "<leader>gb", "<cmd>Gitsigns toggle_current_line_blame<cr>", desc = "Toggle git blame" },
-		{ "<leader>gB", "<cmd>Gitsigns blame_line<cr>", desc = "Blame line" },
-		{ "<leader>gd", "<cmd>Gitsigns toggle_deleted<cr>", desc = "Toggle deleted lines" },
+		{ "<leader>Gb", "<cmd>Gitsigns toggle_current_line_blame<cr>", desc = "Toggle git blame" },
+		{ "<leader>GB", "<cmd>Gitsigns blame_line<cr>", desc = "Blame line" },
+		{ "<leader>Gd", "<cmd>Gitsigns toggle_deleted<cr>", desc = "Toggle deleted lines" },
 
 		-- Visual mode operations
-		{ "<leader>gs", "<cmd>Gitsigns stage_hunk<cr>", mode = "v", desc = "Stage hunk" },
-		{ "<leader>gr", "<cmd>Gitsigns reset_hunk<cr>", mode = "v", desc = "Reset hunk" },
+		{ "<leader>Gs", "<cmd>Gitsigns stage_hunk<cr>", mode = "v", desc = "Stage hunk" },
+		{ "<leader>Gr", "<cmd>Gitsigns reset_hunk<cr>", mode = "v", desc = "Reset hunk" },
 	},
 	config = function()
 		require("gitsigns").setup({
