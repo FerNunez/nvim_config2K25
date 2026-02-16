@@ -101,6 +101,13 @@ return {
 			desc = "[F]ind current [W]ORD",
 		},
 		{
+			"<leader>fi",
+			function()
+				require("fzf-lua").lsp_implementations()
+			end,
+			desc = "[F]ind [I]mplementations",
+		},
+		{
 			"<leader>fd",
 			function()
 				require("fzf-lua").diagnostics_document()
