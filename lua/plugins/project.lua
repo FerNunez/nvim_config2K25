@@ -1,5 +1,9 @@
 return {
 	"ahmedkhalf/project.nvim",
+	-- Pinned because the repo is unmaintained and updates would overwrite the local fix
+	-- for the deprecated vim.lsp.buf_get_clients() -> vim.lsp.get_clients({ bufnr = 0 })
+	-- See: https://github.com/ahmedkhalf/project.nvim/issues/152
+	pin = true,
 	init = function()
 		require("project_nvim").setup({
 			-- your configuration comes her
